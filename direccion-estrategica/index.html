@@ -128,7 +128,6 @@
       width: 100%;
       border: 1px solid #ccc;
       margin-top: 20px;
-      background: #fff;
     }
   </style>
 </head>
@@ -211,11 +210,10 @@
   function mostrarPDF(file) {
     const canvas = document.getElementById('pdfViewer');
     const context = canvas.getContext('2d');
-
-    // Usa PDF.js para cargar y mostrar el archivo PDF
+    
     pdfjsLib.getDocument(file).promise.then(pdf => {
       pdf.getPage(1).then(page => {
-        const viewport = page.getViewport({ scale: 1.5 }); // Cambia el valor de escala si es necesario
+        const viewport = page.getViewport({ scale: 1 });
         canvas.height = viewport.height;
         canvas.width = viewport.width;
 
@@ -224,8 +222,6 @@
           viewport: viewport
         });
       });
-    }).catch(error => {
-      console.error('Error al cargar el PDF: ', error);
     });
   }
 
@@ -235,6 +231,9 @@
     if (e.target === modal) cerrarModal();
   };
 </script>
+
+<!-- Contenedor para el visor de PDF -->
+<canvas id="pdfViewer"></canvas>
 
 </body>
 </html>
