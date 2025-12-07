@@ -200,8 +200,17 @@
   </div>
 
   <script>
-    const PASSWORD = "kamyon.docs";
+    // 🔒 SHA-256 hash de la contraseña "kamyon.docs"
+    const PASSWORD_HASH = "a73fbdcdd3b7d3054e0678e1f19b5b0b88cb9b1e5d8157e2f790d5e5b30c7402";
     let archivoSeleccionado = "";
+
+    async function hashPassword(password) {
+      const msgBuffer = new TextEncoder().encode(password);
+      const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+      return hashHex;
+    }
 
     function abrirModal(file) {
       archivoSeleccionado = file;
@@ -214,11 +223,12 @@
       document.getElementById("passwordModal").style.display = "none";
     }
 
-    function validarPassword() {
+    async function validarPassword() {
       const input = document.getElementById("passwordInput").value.trim();
       const errorMsg = document.getElementById("errorMsg");
+      const hash = await hashPassword(input);
 
-      if (input === PASSWORD) {
+      if (hash === PASSWORD_HASH) {
         errorMsg.style.display = "none";
         cerrarModal();
         window.open(archivoSeleccionado, "_blank");
@@ -230,7 +240,7 @@
     window.onclick = function(event) {
       const modal = document.getElementById("passwordModal");
       if (event.target === modal) cerrarModal();
-    }
+    };
   </script>
 </body>
 </html>
