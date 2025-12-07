@@ -165,7 +165,7 @@
   <div id="passwordModal" class="modal">
     <div class="modal-content">
       <h3>🔒 Acceso restringido</h3>
-      <p>Introduce la contraseña para descargar este documento:</p>
+      <p>Introduce la contraseña para ver este documento:</p>
       <input type="password" id="passwordInput" placeholder="Contraseña" />
       <div class="error-msg" id="errorMsg">❌ Contraseña incorrecta. Inténtalo de nuevo.</div>
       <button class="btn" onclick="validarPassword()">Confirmar</button>
@@ -230,10 +230,10 @@
     const modal = document.getElementById("passwordModal");
     if (e.target === modal) cerrarModal();
   };
-</script>
+  </script>
 
-<!-- Contenedor para el visor de PDF -->
-<canvas id="pdfViewer"></canvas>
+  <!-- Contenedor para el visor de PDF -->
+  <canvas id="pdfViewer"></canvas>
 
 </body>
 </html>
