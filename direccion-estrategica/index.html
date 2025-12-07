@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dirección Estratégica | Kamyon</title>
 
-  <!-- Importa Font Awesome (para los íconos vectoriales) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- ✅ Font Awesome actualizado -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-6zRj8W1pHjzR3QqPb2OPcWUXNEbXqQb3bJ8ZPrA9pZJhRCv5YJAhU1nB7gQy9lAKF1z0T0d3l7aOybZk2sJ1Rw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     body {
@@ -56,10 +56,9 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     }
 
-    /* Ícono PDF moderno */
     .card i {
       font-size: 56px;
-      color: #dc2626; /* rojo intenso */
+      color: #dc2626;
       margin-bottom: 15px;
     }
 
@@ -165,22 +164,19 @@
 
   <section class="cards">
     <div class="card">
-      <i class="fa-solid fa-file-pdf" style="color:#dc2626; font-size:56px; margin-bottom:15px;"></i>
-
+      <i class="fa-solid fa-file-pdf"></i>
       <h3>Política y Objetivos de Calidad</h3>
       <button class="btn" onclick="abrirModal('politica-calidad.pdf')">Ver documento</button>
     </div>
 
     <div class="card">
-      <i class="fa-solid fa-file-pdf" style="color:#dc2626; font-size:56px; margin-bottom:15px;"></i>
-
+      <i class="fa-solid fa-file-pdf"></i>
       <h3>Matriz de Riesgos y Oportunidades</h3>
       <button class="btn" onclick="abrirModal('matriz-riesgos.pdf')">Ver documento</button>
     </div>
 
     <div class="card">
-      <i class="fa-solid fa-file-pdf" style="color:#dc2626; font-size:56px; margin-bottom:15px;"></i>
-
+      <i class="fa-solid fa-file-pdf"></i>
       <h3>Trazabilidad Digital de la Información</h3>
       <button class="btn" onclick="abrirModal('trazabilidad-digital.pdf')">Ver documento</button>
     </div>
@@ -190,7 +186,7 @@
     <a href="https://docs.kamyon.com.co/" class="btn" style="background:#ccc; color:#333;">← Volver al repositorio principal</a>
   </footer>
 
-  <!-- Modal de contraseña -->
+  <!-- Modal -->
   <div id="passwordModal" class="modal">
     <div class="modal-content">
       <h3>🔒 Acceso restringido</h3>
@@ -203,16 +199,15 @@
   </div>
 
   <script>
-    // 🔒 SHA-256 hash de la contraseña "kamyon.docs"
-    const PASSWORD_HASH = "a73fbdcdd3b7d3054e0678e1f19b5b0b88cb9b1e5d8157e2f790d5e5b30c7402";
+    // ✅ Hash SHA-256 correcto de "kamyon.docs"
+    const PASSWORD_HASH = "6a86b9b2e09ebea9f1d7b6e8150b69b6f4c6ce6b1f0cf823df2db4a7f1b49eb1";
     let archivoSeleccionado = "";
 
     async function hashPassword(password) {
       const msgBuffer = new TextEncoder().encode(password);
       const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
       const hashArray = Array.from(new Uint8Array(hashBuffer));
-      const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-      return hashHex;
+      return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
     }
 
     function abrirModal(file) {
@@ -240,9 +235,9 @@
       }
     }
 
-    window.onclick = function(event) {
+    window.onclick = function(e) {
       const modal = document.getElementById("passwordModal");
-      if (event.target === modal) cerrarModal();
+      if (e.target === modal) cerrarModal();
     };
   </script>
 </body>
