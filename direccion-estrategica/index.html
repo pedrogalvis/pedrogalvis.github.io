@@ -128,6 +128,7 @@
       width: 100%;
       border: 1px solid #ccc;
       margin-top: 20px;
+      height: 500px; /* Ajuste del tamaño del visor */
     }
   </style>
 </head>
@@ -222,6 +223,8 @@
           viewport: viewport
         });
       });
+    }).catch((error) => {
+      alert("Error al cargar el PDF: " + error);
     });
   }
 
