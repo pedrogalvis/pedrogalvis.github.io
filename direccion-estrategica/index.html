@@ -7,6 +7,8 @@
 
   <!-- ✅ Font Awesome actualizado -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer" />
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
 
   <style>
     body {
@@ -86,7 +88,7 @@
       border-radius: 12px;
       text-align: center;
       width: 90%;
-      max-width: 400px;
+      max-width: 600px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       animation: slideDown 0.3s ease;
     }
@@ -120,6 +122,13 @@
       cursor: pointer;
     }
     .close-btn:hover { background: #d81c36; }
+
+    /* Estilo para el canvas (visor de PDF) */
+    #pdfViewer {
+      width: 100%;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -191,10 +200,29 @@
     if (input === decoded) {
       errorMsg.style.display = "none";
       cerrarModal();
-      window.open(archivoSeleccionado, "_blank");
+      mostrarPDF(archivoSeleccionado);
     } else {
       errorMsg.style.display = "block";
     }
+  }
+
+  // Función para mostrar el PDF en el visor
+  function mostrarPDF(file) {
+    const canvas = document.getElementById('pdfViewer');
+    const context = canvas.getContext('2d');
+    
+    pdfjsLib.getDocument(file).promise.then(pdf => {
+      pdf.getPage(1).then(page => {
+        const viewport = page.getViewport({ scale: 1 });
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        page.render({
+          canvasContext: context,
+          viewport: viewport
+        });
+      });
+    });
   }
 
   // Cierra el modal al hacer clic fuera
@@ -203,6 +231,9 @@
     if (e.target === modal) cerrarModal();
   };
 </script>
+
+<!-- Contenedor para el visor de PDF -->
+<canvas id="pdfViewer"></canvas>
 
 </body>
 </html>
