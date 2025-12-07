@@ -165,47 +165,44 @@
   </div>
 
   <script>
-    // ✅ SHA-256 manual de "kamyon.docs"
-    const PASSWORD_HASH = "6a86b9b2e09ebea9f1d7b6e8150b69b6f4c6ce6b1f0cf823df2db4a7f1b49eb1";
-    let archivoSeleccionado = "";
+  // ✅ Contraseña "camuflada" en base64
+  const PASSWORD_ENCODED = "a2FteW9uLmRvY3M="; // "kamyon.docs" codificado en base64
+  let archivoSeleccionado = "";
 
-    // Implementación pura de SHA256 (para máxima compatibilidad)
-    async function sha256(str) {
-      const utf8 = new TextEncoder().encode(str);
-      const hashBuffer = await crypto.subtle.digest("SHA-256", utf8);
-      const hashArray = Array.from(new Uint8Array(hashBuffer));
-      return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+  // Función para abrir el modal
+  function abrirModal(file) {
+    archivoSeleccionado = file;
+    document.getElementById("passwordModal").style.display = "flex";
+    document.getElementById("passwordInput").value = "";
+    document.getElementById("errorMsg").style.display = "none";
+  }
+
+  // Función para cerrar el modal
+  function cerrarModal() {
+    document.getElementById("passwordModal").style.display = "none";
+  }
+
+  // Validar la contraseña
+  function validarPassword() {
+    const input = document.getElementById("passwordInput").value.trim();
+    const errorMsg = document.getElementById("errorMsg");
+    const decoded = atob(PASSWORD_ENCODED);
+
+    if (input === decoded) {
+      errorMsg.style.display = "none";
+      cerrarModal();
+      window.open(archivoSeleccionado, "_blank");
+    } else {
+      errorMsg.style.display = "block";
     }
+  }
 
-    function abrirModal(file) {
-      archivoSeleccionado = file;
-      document.getElementById("passwordModal").style.display = "flex";
-      document.getElementById("passwordInput").value = "";
-      document.getElementById("errorMsg").style.display = "none";
-    }
+  // Cierra el modal al hacer clic fuera
+  window.onclick = function (e) {
+    const modal = document.getElementById("passwordModal");
+    if (e.target === modal) cerrarModal();
+  };
+</script>
 
-    function cerrarModal() {
-      document.getElementById("passwordModal").style.display = "none";
-    }
-
-    async function validarPassword() {
-      const input = document.getElementById("passwordInput").value.trim();
-      const errorMsg = document.getElementById("errorMsg");
-      const hash = await sha256(input);
-
-      if (hash === PASSWORD_HASH) {
-        errorMsg.style.display = "none";
-        cerrarModal();
-        window.open(archivoSeleccionado, "_blank");
-      } else {
-        errorMsg.style.display = "block";
-      }
-    }
-
-    window.onclick = e => {
-      const modal = document.getElementById("passwordModal");
-      if (e.target === modal) cerrarModal();
-    };
-  </script>
 </body>
 </html>
