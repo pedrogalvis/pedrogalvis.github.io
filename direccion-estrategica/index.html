@@ -6,7 +6,7 @@
   <title>Dirección Estratégica | Kamyon</title>
 
   <!-- ✅ Font Awesome actualizado -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-6zRj8W1pHjzR3QqPb2OPcWUXNEbXqQb3bJ8ZPrA9pZJhRCv5YJAhU1nB7gQy9lAKF1z0T0d3l7aOybZk2sJ1Rw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer" />
 
   <style>
     body {
@@ -15,23 +15,12 @@
       background: #f8fafc;
       color: #333;
     }
-
     header {
       text-align: center;
       padding: 40px 20px 20px;
     }
-
-    header h1 {
-      color: #004080;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      color: #555;
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 16px;
-    }
+    header h1 { color: #004080; margin-bottom: 10px; }
+    header p { color: #555; max-width: 700px; margin: 0 auto; font-size: 16px; }
 
     .cards {
       display: grid;
@@ -47,25 +36,15 @@
       border-radius: 16px;
       padding: 25px 20px;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
 
     .card i {
       font-size: 56px;
       color: #dc2626;
       margin-bottom: 15px;
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-      font-size: 18px;
-      color: #222;
     }
 
     .btn {
@@ -79,10 +58,7 @@
       font-weight: 500;
       transition: background 0.2s;
     }
-
-    .btn:hover {
-      background: #0066cc;
-    }
+    .btn:hover { background: #0066cc; }
 
     footer {
       text-align: center;
@@ -91,7 +67,6 @@
       color: #666;
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -100,7 +75,7 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0,0,0,0.6);
       justify-content: center;
       align-items: center;
     }
@@ -121,11 +96,7 @@
       to { transform: translateY(0); opacity: 1; }
     }
 
-    .modal-content h3 {
-      margin-bottom: 15px;
-      color: #004080;
-    }
-
+    .modal-content h3 { margin-bottom: 15px; color: #004080; }
     .modal-content input {
       width: 100%;
       padding: 10px;
@@ -134,14 +105,12 @@
       border: 1px solid #ccc;
       font-size: 16px;
     }
-
     .error-msg {
       color: red;
       font-size: 14px;
       margin-bottom: 10px;
       display: none;
     }
-
     .close-btn {
       background: #ccc;
       color: #333;
@@ -150,10 +119,7 @@
       border-radius: 8px;
       cursor: pointer;
     }
-
-    .close-btn:hover {
-      background: #bbb;
-    }
+    .close-btn:hover { background: #bbb; }
   </style>
 </head>
 <body>
@@ -199,13 +165,14 @@
   </div>
 
   <script>
-    // ✅ Hash SHA-256 correcto de "kamyon.docs"
+    // ✅ SHA-256 manual de "kamyon.docs"
     const PASSWORD_HASH = "6a86b9b2e09ebea9f1d7b6e8150b69b6f4c6ce6b1f0cf823df2db4a7f1b49eb1";
     let archivoSeleccionado = "";
 
-    async function hashPassword(password) {
-      const msgBuffer = new TextEncoder().encode(password);
-      const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+    // Implementación pura de SHA256 (para máxima compatibilidad)
+    async function sha256(str) {
+      const utf8 = new TextEncoder().encode(str);
+      const hashBuffer = await crypto.subtle.digest("SHA-256", utf8);
       const hashArray = Array.from(new Uint8Array(hashBuffer));
       return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
     }
@@ -224,7 +191,7 @@
     async function validarPassword() {
       const input = document.getElementById("passwordInput").value.trim();
       const errorMsg = document.getElementById("errorMsg");
-      const hash = await hashPassword(input);
+      const hash = await sha256(input);
 
       if (hash === PASSWORD_HASH) {
         errorMsg.style.display = "none";
@@ -235,7 +202,7 @@
       }
     }
 
-    window.onclick = function(e) {
+    window.onclick = e => {
       const modal = document.getElementById("passwordModal");
       if (e.target === modal) cerrarModal();
     };
