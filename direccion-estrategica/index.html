@@ -80,6 +80,7 @@
       color: #666;
     }
 
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -210,6 +211,11 @@
     document.getElementById("passwordModal").style.display = "flex";
     document.getElementById("passwordInput").value = "";
     document.getElementById("errorMsg").style.display = "none";
+
+    // Enfocar el input de contraseña para facilitar la escritura
+    setTimeout(function() {
+      document.getElementById("passwordInput").focus();
+    }, 100);
   }
 
   // Función para cerrar el modal
