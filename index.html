@@ -59,7 +59,1572 @@
 
     <style>
 /**index.css/
-		
+	
+  
+    /* Inicio Solución global para evitar desbordamientos */
+    * {
+        box-sizing: border-box; /* Asegura que el padding y border se incluyan en el tamaño del ancho/alto */
+    }
+
+    html, body {
+        margin: 0; /* Elimina márgenes predeterminados */
+        padding: 0; /* Elimina el relleno predeterminado */
+        width: 100%; /* Evita cualquier desbordamiento horizontal */
+        overflow-x: hidden; /* Oculta cualquier desbordamiento horizontal */
+    }
+    /* Fin Solución global para evitar desbordamientos */
+
+    /* Estilos generales para la cabecera */
+.header-container {
+  width: 100%;
+  position: relative;
+
+}
+
+nav .logokamyon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logokamyon img {
+  height: 50px; /* Ajustar según el tamaño del logo */
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  margin: 0 10px;
+}
+
+ul li a, .btn {
+  color: #242e42;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+
+ul li a:hover, .btn:hover {
+  background-color: #ccc;
+}
+
+.btn {
+  font-size: 16px;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  color: #242e42;
+  min-width: 160px;
+  border-radius: 6px;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  padding: 10px;
+  text-decoration: none;
+}
+
+.icon {
+  display: inline-block;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+/* Estilos responsivos para dispositivos pequeños (móviles) */
+@media (max-width: 768px) {
+  nav .logokamyon {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  ul li {
+    width: 100%;
+    text-align: left;
+  }
+
+  ul li a, .btn {
+    width: 100%;
+    text-align: left;
+    padding: 12px 20px;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 30px;
+    color: #fff;
+  }
+
+  /* Mostrar el menú cuando se activa el toggle */
+  ul.active {
+    display: flex;
+  }
+
+  .hide-on-large {
+    display: block;
+  }
+
+  .hide-on-small {
+    display: none;
+  }
+}
+
+/* Mostrar el icono del idioma solo en pantallas grandes */
+@media (min-width: 769px) {
+  .icon.hide-on-small {
+    display: inline-block;
+  }
+
+  .hide-on-large {
+    display: none;
+  }
+}
+
+/* Estilo base para el div con la imagen de fondo faq */
+
+/* Media Query para pantallas de tablet y móviles (pantallas pequeñas) */
+@media (max-width: 768px) {
+  .responsive-background {
+    background-size: cover; /* Asegura que la imagen siga cubriendo */
+    background-position: center top; /* Centra la imagen, alineada hacia arriba */
+    min-height: 350px; /* Ajusta la altura para pantallas más pequeñas */
+  }
+}
+
+/* Media Query para pantallas aún más pequeñas (móviles) */
+@media (max-width: 480px) {
+  .responsive-background {
+    background-size: cover; /* Asegura que la imagen cubra el contenedor */
+    background-position: center top; /* Centra la imagen hacia arriba */
+    min-height: 300px; /* Disminuye la altura para dispositivos móviles más pequeños */
+  }
+}
+
+/* Media Query para pantallas grandes (escritorios de 1200px o más) */
+@media (min-width: 1200px) {
+  .responsive-background {
+    background-size: cover; /* La imagen sigue cubriendo */
+    background-position: center center; /* Centrado de la imagen */
+    min-height: 600px; /* Aumenta la altura en pantallas grandes */
+  }
+}
+/* Ajustes adicionales para tamaños pequeños (móviles) */
+@media (max-width: 768px) {
+  .responsive-background {
+    height: 40vh; /* Reducir la altura en pantallas más pequeñas */
+  }
+}
+
+/* Ajustes para pantallas muy grandes */
+@media (min-width: 1200px) {
+  .responsive-background {
+    height: 60vh; /* Mayor altura en pantallas grandes */
+  }
+}
+
+/* Contenedor de los dos elementos */
+.category-container {
+  display: flex;
+  justify-content: center; /* Centra los divs dentro del contenedor */
+  align-items: center; /* Centra verticalmente los divs */
+  margin-top: 25px;
+  gap: 35px; /* Espacio entre los divs */
+  margin: 35px 10%; /* Márgenes para centrar el contenedor en la página */
+  flex-wrap: wrap; /* Permite que los divs se acomoden si el espacio no es suficiente */
+  width: 80%; /* Ajusta el ancho del contenedor según lo necesario */
+}
+
+/* Estilo de cada categoría (Sender y Carrier) */
+.category-item {
+  display: flex;
+  flex-direction: column; /* Organiza los elementos verticalmente */
+  justify-content: center; /* Centra el contenido dentro del div */
+  align-items: center; /* Centra todo dentro del div */
+  text-align: center; /* Alinea el texto al centro */
+  width: 48%; /* Ocupa el 50% del contenedor (ajustado a 48% para espacio entre divs) */
+  background-color: #f5f5f5; /* Fondo para los divs */
+  padding: 20px;
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Sombra inicial suave */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+/* Efecto al pasar el mouse sobre cada div */
+.category-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra más fuerte al pasar el mouse */
+  transform: translateY(-5px); /* Eleva ligeramente el div al pasar el mouse */
+}
+
+/* Estilo para los iconos */
+.category-icon {
+  font-size: 50px; /* Tamaño del icono */
+  color: #d81b35; /* Color del icono */
+  margin-bottom: 15px; /* Espacio entre el icono y el título */
+}
+
+/* Título */
+.category-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 5px 0;
+  color: #242e42; /* Color del título */
+}
+
+/* Subtítulo */
+.category-subtitle {
+  font-size: 14px;
+  color: #666; /* Color del subtítulo */
+}
+
+/* Responsividad: Acomoda los elementos en pantallas pequeñas */
+@media (max-width: 768px) {
+  .category-container {
+    flex-direction: column; /* En pantallas pequeñas, apilar los divs */
+    gap: 20px; /* Reducir el espacio entre los elementos */
+  }
+
+  .category-item {
+    width: 80%; /* Reducir el ancho de cada item en pantallas pequeñas */
+  }
+}
+
+/* Estilos generales */
+
+#faq {
+  max-width: 1200px; /* Ancho máximo del contenedor general */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.faq-topic {
+  margin-bottom: 40px;
+  max-width: 100%; /* Asegura que se extienda todo el ancho disponible */
+}
+
+.faq-topic h3 {
+  font-size: 1.5rem;
+  color: #242e42;
+  margin-bottom: 10px;
+}
+
+/* Estilo para cada pregunta */
+.faq-item {
+  margin-bottom: 15px;
+}
+
+/* Estilo para el contenedor del título y el ícono */
+.faq-toggle {
+  background-color: #f1f1f1; /* Fondo gris claro */
+  color: #242e42;
+  border: 1px solid #ccc;  /* Borde gris suave */
+  padding: 15px 30px; /* Aumenta el padding horizontal (más ancho) */
+  width: 100%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex; /* Usamos flexbox para el contenido */
+  align-items: center; /* Alinea el contenido verticalmente en el centro */
+  text-align: left; /* Alinea el texto a la izquierda */
+  transition: background-color 0.3s ease;
+}
+
+/* Cambia el fondo cuando se pasa el cursor sobre el botón */
+.faq-toggle:hover {
+  background-color: #ddd;
+}
+
+/* Estilo para el ícono (el símbolo + o -) */
+.faq-icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  margin-right: 10px; /* Espacio entre el ícono y el texto */
+  flex-shrink: 0; /* Evita que el ícono se reduzca */
+}
+
+/* Estilo para la respuesta (el contenido desplegado) */
+.faq-answer {
+  padding: 0 15px; /* Solo padding horizontal para evitar problemas con la transición */
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  margin-top: 10px;
+  max-height: 0; /* Inicialmente oculto */
+  overflow: hidden; /* Oculta el contenido que exceda max-height */
+  transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Transición suave */
+  text-align: left;
+}
+
+.faq-answer p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0; /* Elimina márgenes adicionales para facilitar el deslizamiento */
+}
+.category-title-link {
+  text-decoration: none; /* Elimina el subrayado por defecto de los enlaces */
+  color: inherit; /* Mantiene el color del texto del título */
+}
+
+.category-title-link:hover {
+  text-decoration: none; /* Elimina el subrayado cuando se pasa el mouse */
+}
+    /* ----------------- Inicio Ventana emergente configuración de cookies -----------------*/
+
+    /* Fondo oscuro de segundo plano */
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 999;
+    }
+
+    /* Estilo base de la ventana emergente */
+    /* Ventana emergente ajustada a la derecha */
+    #cookie-popup {
+        font-family: 'Poppins', sans-serif, 'Arial';
+        font-size: 14px;
+        position: fixed;
+        top: 8%; /* Margen arriba de la pantalla */
+        right: 5%; /* Margen desde el borde derecho, 5% */
+        max-width: 470px; /* Ancho máximo para mantenerlo compacto */
+        max-height: 90vh; /* Limita la altura al 90% de la pantalla */
+        background: white;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        z-index: 1000;
+        overflow-y: auto; /* Activa desplazamiento vertical si el contenido excede */
+        display: none; /* Oculta inicialmente */
+        box-sizing: border-box;
+        bottom: 5%; /* Agrega margen inferior al popup */
+    }
+
+    /* Ajustes adicionales para móviles */
+    @media (max-width: 480px) {
+        #cookie-popup {
+
+            left: auto; /* Asegura que no tome margen izquierdo */
+            width: 90%; /* Más compacto para pantallas pequeñas */
+            padding: 10px; /* Reduce el relleno en dispositivos pequeños */
+            bottom: 5%; /* Deja margen al final para el botón */
+            max-height: 85vh; /* Más compacta en pantallas móviles */
+        }
+    }
+
+
+    /* Botón de "Confirmar mis preferencias" */
+    #cookie-popup .confirm-button {
+        font-size: 16px; /* Texto legible */
+        padding: 12px 20px; /* Botón más interactivo */
+        width: 100%; /* Asegura anchura completa en dispositivos móviles */
+        margin-top: 12px; /* Espacio desde el contenido superior */
+        position: sticky; /* Fija el botón dentro del contenedor */
+        bottom: 0; /* Mantén el botón visible en la parte inferior del popup */
+        background-color: #242e42; /* Color de fondo del botón (opcional) */
+        color: white; /* Color del texto (opcional) */
+        border: none; /* Estilo limpio del botón */
+        border-radius: 5px; /* Bordes redondeados */
+    }
+    }
+
+    /* Contenido del Popup */
+    #cookie-popup .content-wrapper {
+        margin-bottom: 20px; /* Deja espacio debajo del contenido */
+    }
+
+    #cookie-popup h2 {
+        font-family: 'Poppins', sans-serif; 'Arial';
+
+        margin-top: 0;
+        color: #333;
+    }
+
+    #cookie-popup p {
+        font-family: 'Poppins', sans-serif; 'Arial';
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .cookie-options {
+        margin-top: 20px;
+    }
+
+    .cookie-option {
+        margin-bottom: 15px;
+    }
+
+    .cookie-option label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .cookie-option input {
+        transform: scale(1.2);
+    }
+
+    .expandable {
+        margin-top: 5px;
+        display: none;
+        font-size: 13px;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    .toggle-icon {
+        font-weight: bold;
+        margin-right: 10px;
+        cursor: pointer;
+        font-size: 21px; /* Cambia este valor para ajustar el tamaño */
+    }
+
+    .cookie-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .cookie-buttons button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #242e42;
+        color: white;
+    }
+
+    .btn-secondary {
+        background-color: #ddd;
+        color: #242e42;
+    }
+
+    .btn-primary:hover {
+        background-color: #d81b35;
+    }
+
+    .btn-secondary:hover {
+        background-color: #ccc;
+        color: #242e42;
+    }
+
+    /* Enlace de configuración de cookies */
+    .cookie-link {
+        text-decoration: none;
+        color: #d81b35;
+        cursor: pointer;
+    }
+
+    .cookie-link:hover {
+        text-decoration: underline;
+    }
+
+    /* Estilo base para el popup */
+    #cookie-popup {
+        width: 50%; /* Ancho por defecto para pantallas grandes */
+        margin: 2rem auto;
+        padding: 1.5rem;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        font-family: 'poppins' , Arial, sans-serif;
+        color: #333;
+    }
+
+    #cookie-popup h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    #cookie-popup p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+
+    .cookie-options {
+        margin-bottom: 1.5rem;
+    }
+
+    .cookie-option {
+        margin-bottom: 1rem;
+    }
+
+    .cookie-option label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1rem;
+    }
+
+
+    .cookie-option .expandable {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-top: 0.5rem;
+        display: none;
+    }
+
+    .cookie-buttons {
+        display: flex;
+        justify-content: space-around;
+        gap: 1rem;
+    }
+
+    .cookie-buttons .btn-primary,
+    .cookie-buttons .btn-secondary {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+
+    /* Media queries para pantallas más pequeñas */
+
+    /* Tabletas (pantallas de ancho <= 768px) */
+    @media (max-width: 768px) {
+        #cookie-popup {
+            width: 80%; /* Ajusta el ancho del popup */
+            padding: 1rem;
+        }
+
+        #cookie-popup h2 {
+            font-size: 1.3rem; /* Reduce el tamaño del encabezado */
+        }
+
+        #cookie-popup p {
+            font-size: 0.9rem;
+        }
+
+        .cookie-option label {
+            font-size: 0.9rem;
+        }
+
+        .cookie-option .toggle-icon {
+            font-size: 2rem; /* Ajusta el tamaño del ícono desplegable */
+        }
+
+        .cookie-buttons {
+            flex-direction: column; /* Los botones se apilan verticalmente */
+            gap: 0.5rem;
+        }
+
+        .cookie-buttons .btn-primary,
+        .cookie-buttons .btn-secondary {
+            width: 100%; /* Botones ocupan todo el ancho */
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    /* Teléfonos (pantallas de ancho <= 480px) */
+    @media (max-width: 480px) {
+        #cookie-popup {
+            width: 90%; /* Reduce aún más el ancho */
+            padding: 0.8rem;
+        }
+
+        #cookie-popup h2 {
+            font-size: 1.2rem; /* Encabezado más pequeño */
+        }
+
+        #cookie-popup p {
+            font-size: 0.8rem; /* Texto más pequeño para pantallas muy pequeñas */
+        }
+
+        .cookie-option label {
+            flex-direction: column; /* Etiquetas se apilan verticalmente */
+            align-items: flex-start;
+        }
+
+        /* Estilo base del signo "+" */
+        .cookie-option .toggle-icon {
+            font-size: 2rem; /* Tamaño por defecto */
+            font-weight: bold; /* Asegura grosor */
+            cursor: pointer;
+        }
+
+        /* Media query: dispositivos móviles (<= 480px) */
+        @media (max-width: 480px) {
+            .cookie-option .toggle-icon {
+                font-size: 2rem; /* Aumenta mucho el tamaño del signo "+" en móviles */
+            }
+        }
+
+        .cookie-option .expandable {
+            font-size: 0.8rem; /* Ajusta el tamaño del texto adicional */
+        }
+
+        .cookie-buttons .btn-primary,
+        .cookie-buttons .btn-secondary {
+            width: 100%; /* Botones ocupan todo el ancho */
+            font-size: 0.8rem;
+        }
+    }
+    /* Asegura que el popup sea desplazable si el contenido desborda */
+    #cookie-popup {
+        width: 60%; /* Ancho por defecto */
+        max-height: 90vh; /* Limita la altura máxima al 90% de la ventana */
+        margin: 2rem auto;
+        padding: 1.5rem;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        font-family: Arial, sans-serif;
+        color: #333;
+
+        /* Habilita desplazamiento si el contenido es demasiado alto */
+        overflow-y: auto;
+    }
+
+    /* Configuración responsiva adicional */
+
+    @media (max-width: 768px) {
+        #cookie-popup {
+            width: 80%; /* Ajuste para tabletas */
+            max-height: 90vh; /* Sigue limitando la altura */
+            padding: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        #cookie-popup {
+            width: 90%; /* Ajuste para pantallas pequeñas */
+            max-height: 90vh; /* Sigue permitiendo scrolling si es necesario */
+            padding: 0.8rem;
+        }
+    }
+
+    /* ------------------- Fin Ventana emergente configuración de cookies ---------------------------------*/
+
+    /* Estilos generales para desktop/otros dispositivos del placeholder de suscribase al boletín y el botón enviar*/
+    @media (max-width: 768px) {
+        .input-group {
+            display: flex;
+            flex-direction: column; /* Apilar input y botón verticalmente */
+            align-items: center; /* Centrar horizontalmente */
+            width: 70%; /* Ancho total del contenedor */
+            margin: 0 auto; /* Centrar el contenedor horizontalmente */
+            gap: 10px; /* Espaciado uniforme entre input y botón */
+        }
+
+        .input-group .form-control,
+        .input-group-btn .btn {
+            width: 100%; /* Ambos elementos tendrán el mismo ancho */
+            max-width: 100%; /* Asegura que no excedan el contenedor */
+            padding: 10px; /* Espaciado interno */
+            font-size: 14px; /* Tamaño uniforme de fuente */
+            box-sizing: border-box; /* Incluye padding y bordes en el ancho total */
+        }
+
+        .input-group .form-control {
+            border: 1px solid #ccc; /* Borde del input */
+            border-radius: 5px; /* Bordes redondeados */
+            background-color: #fff; /* Fondo blanco */
+        }
+
+        .input-group-btn .btn {
+            background-color: #d81b35; /* Botón rojo */
+            color: #fff; /* Texto blanco */
+            border: none;
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .input-group-btn .btn:hover {
+            background-color: #b9152d; /* Rojo más oscuro al pasar el cursor */
+            transform: translateY(-3px); /* Movimiento hacia arriba */
+        }
+    }
+    /*imagen responsiva*/
+    .imagen-responsiva {
+        background-image: url('/img/iso.png');
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 500px;
+        background-repeat: no-repeat;
+    }
+
+    @media screen and (max-width: 768px) {
+        .imagen-responsiva {
+            height: 300px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .imagen-responsiva {
+            height: 200px;
+        }
+    }
+
+    /*footer 100% responsivo*/
+    /* ================= Estilos generales del footer ============================== */
+
+    #footer {
+        background-color: #242e42;
+        color: #fff;
+        padding: 2rem 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Contenedor principal del footer */
+    .container.contfooter {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 15px; /* Reduce el padding horizontal */
+        margin: 0; /* Elimina márgenes adicionales */
+        box-sizing: border-box;
+    }
+
+    /* Estilo para cada bloque dentro del footer */
+    .footer-brand,
+    .footer-business,
+    .footer-qualities,
+    .footer-office,
+    .footer-newsletter,
+    .footer-social {
+        flex: 1 1 20%; /* Cambiado a 20% para que ocupe el mismo porcentaje de la pantalla */
+        margin-bottom: 1rem;
+        text-align: left;
+        padding: 0 10px; /* Añadido padding para separar contenido */
+    }
+
+    /* Ajustar imagen del logo sin distorsión */
+    .footer-brand img {
+        max-width: 275px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* 🔴 Para pantallas grandes (PC y más grandes) */
+    @media (min-width: 1025px) {
+        .container.contfooter {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
+
+        /* Reorganiza solo el orden del logo debajo del div de "Academy" */
+
+        .footer-brand {
+            text-align: center;
+            margin-top: 180px; /* Espacio adicional entre "Academy" y el logo */
+        }
+
+        /* Ajustes de los otros bloques para no cambiar su disposición */
+        .footer-business, .footer-qualities, .footer-office, .footer-newsletter, .footer-social {
+            flex: 1 1 18%; /* Mantén el tamaño del bloque en el 18% */
+        }
+    }
+
+
+    /* Títulos */
+    h5 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    /* Estilo de enlaces */
+    p a {
+        color: #ddd;
+        text-decoration: none;
+        font-size: 1rem;
+        display: block;
+    }
+
+    p a:hover {
+        color: #d81b35;
+    }
+
+    /* Estilo para el contenedor de redes sociales */
+    .footer-social p {
+        display: flex;
+        flex-wrap: wrap; /* Permite que los elementos se distribuyan en varias filas */
+        justify-content: center; /* Centra los iconos */
+        gap: 10px; /* Espacio entre los iconos */
+        margin: 0; /* Elimina márgenes adicionales */
+    }
+
+    /* Estilo para cada enlace de icono */
+    .footer-social p a {
+        color: #fff;
+        font-size: 2rem; /* Ajusta el tamaño del icono */
+        width: 30%; /* Cada icono ocupará el 30% del ancho del contenedor */
+        text-align: center; /* Centra los iconos dentro de su contenedor */
+        margin-bottom: 10px; /* Añade espacio entre las filas */
+    }
+
+    /* Para pantallas grandes (PC y más grandes) */
+    @media (min-width: 1025px) {
+        .footer-social p a {
+            width: 30%; /* Ajusta el ancho de los iconos */
+        }
+    }
+
+    /* 🟢 Para pantallas móviles (celulares) */
+    @media (max-width: 768px) {
+        .footer-social p {
+            flex-direction: row; /* Coloca los iconos en una sola fila */
+            justify-content: space-evenly; /* Distribuye los iconos de manera uniforme */
+            gap: 10px; /* Reduce el espacio entre iconos */
+        }
+
+        .footer-social p a {
+            font-size: 2.3rem; /* Hace los iconos más grandes */
+            width: auto; /* Elimina el ancho fijo para que los iconos se ajusten al tamaño necesario */
+        }
+    }
+
+
+    .footer-social p a:hover {
+        color: #d81b35;
+    }
+
+    /* Estilo para el formulario del boletín */
+    .input-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .input-group input {
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 70%;
+    }
+
+    .input-group button {
+        padding: 0.5rem 1rem;
+        border: none;
+        background-color: #d81b35;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .input-group button:hover {
+        background-color: #b0152a;
+    }
+
+    /* 🟢 Responsividad para móviles */
+    @media (max-width: 768px) {
+        .container.contfooter {
+            flex-direction: column;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .footer-social p {
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .footer-business,
+        .footer-qualities,
+        .footer-office,
+        .footer-newsletter {
+            text-align: center;
+        }
+
+        .input-group input {
+            width: 100%;
+        }
+    }
+
+    /* 🟡 Responsividad para tablets */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .container.contfooter {
+            flex-direction: column;
+        }
+    }
+
+    /* 🔴 Para pantallas grandes (PC y más grandes) */
+    @media (min-width: 1025px) {
+        .container.contfooter {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0 10px; /* Añade un padding más pequeño */
+        }
+
+        .footer-business, .footer-qualities, .footer-office, .footer-newsletter, .footer-social {
+            flex: 1 1 18%; /* Ajusta para que cada sección ocupe el 18% */
+            margin-right: 1px; /* Reduce margen entre columnas */
+            margin-left: 0;
+        }
+
+        /* Evitar que el contenedor se corte en pantallas grandes */
+        #footer {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+
+
+    /*links debajo del pie de página*/
+
+
+    .main-nav-f {
+
+
+        color: #242e42;
+        background-color: #ccc;
+        padding: 10px 0;
+        text-align: center;
+
+    }
+
+    .main-nav-f {
+        color: #242e42;
+        background-color: #ccc;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 10px 35px;
+        text-align: center;
+
+    }
+
+    .menuf-item {
+        display: inline;
+    }
+
+    .navf-link {
+        color: #242e42;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .navf-link:hover {
+        text-decoration: none;
+    }
+
+    /* Media Query para pantallas pequeñas (móviles) */
+    @media screen and (max-width: 600px) {
+        .nav-menuf {
+            height: auto;
+            font-size: 1rem;
+            padding: 0 15px 0 15px;
+            justify-content: center;
+            text-align: center;
+            gap: 15px;
+
+        }
+
+        .navf-link {
+            font-size: 14px;
+        }
+    }
+
+    /* Media Query para tablets */
+    @media screen and (min-width: 601px) and (max-width: 1024px) {
+        .nav-menuf {
+            gap: 15px;
+        }
+
+        .navf-link {
+            font-size: 12px;
+        }
+    }
+
+    /* Media Query para pantallas grandes (escritorio) */
+    @media screen and (min-width: 1025px) {
+        .nav-menuf {
+            gap: 25px;
+        }
+
+        .navf-link {
+            font-size: 14px;
+        }
+    }
+
+
+    /* Logo */
+    .logo-background {
+        max-width: 250px; /* Tamaño ajustado del logo */
+        margin-bottom: 20px; /* Separación del logo con el contenido */
+    }
+
+    /* Estilos del texto */
+    .full-width-contact .text h3 {
+        font-size: 1.8em;
+        font-family: 'Poppins', Arial, sans-serif;
+        color: #242e42; /* Elegante color oscuro */
+        margin-bottom: 20px; /* Espaciado del texto */
+    }
+
+    .contact-button {
+        background-color: #242e42; /* Azul oscuro para el botón */
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px; /* Bordes redondeados */
+        cursor: pointer;
+        text-decoration: none; /* Sin subrayado */
+        transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-button:hover {
+        background-color: #d81b35; /* Rojo para hover */
+        transform: translateY(-5px); /* Movimiento en hover */
+        box-shadow: 0 8px 20px #d81b35; /* Efecto de sombra */
+    }
+
+    /* Estilos de la sección principal del texto */
+    .full-width-contact {
+        margin-bottom: 70px; /* Espacio entre la primera y segunda sección */
+    }
+
+    .text h2 {
+        font-size: 2.25em;
+        font-family: 'poppins', Arial, sans-serif;
+        color: #242e42;
+
+    }
+
+
+    /* Estilos de la sección animada */
+    .footer-animated h2 {
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        font-size: 21px;
+        color: #242e42;
+        margin-bottom: 10px;
+    }
+
+    .typed-container {
+        font-size: 2em;
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        color: #fff; /* Color del texto animado */
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.487);
+    }
+
+    .typed-cursor--blink {
+        color: #fff;
+        animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
+    }
+    .logo-background {
+        max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
+        display: block; /* Previene márgenes no deseados */
+        margin: 0 auto; /* Centra la imagen horizontalmente */
+    }
+
+    /* Opcional: Ajustes adicionales para pantallas pequeñas */
+    @media (max-width: 768px) {
+        .logo-background {
+            width: 95%; /* Ajusta el ancho de la imagen en pantallas pequeñas */
+        }
+    }
+
+
+
+
+
+    /* Estilo responsivo para pantallas más pequeñas */
+    @media (max-width: 768px) {
+        #carrusel-slick {
+            flex-wrap: wrap; /* Permite que los botones se muevan a otra línea */
+            justify-content: center;
+        }
+
+    }
+
+    /* Estilo del enlace contenedor */
+    .heading-link {
+        display: block;           /* Envuelve todo el bloque */
+        text-decoration: none;    /* Eliminamos subrayado */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añadimos un efecto de transformación suave */
+    }
+
+    /* Efecto al pasar el cursor en el enlace */
+    .heading-link:hover {
+        transform: scale(1.02);    /* Ligero aumento del bloque al hacer hover (2%) */
+
+        text-decoration: none;    /* Aseguramos que no tenga subrayado */
+    }
+
+    /* Estilo general del componente clickeable */
+    .heading {
+        text-align: center;       /* Centrar el texto */
+        margin: 20px;            /* Margen externo */
+        padding: 20px;           /* Espaciado interno */
+        border: 1px solid rgba(204, 204, 204, 0.45); /* Borde sutil */
+        border-radius: 8px;       /* Bordes redondeados */
+        transition: background-color 0.3s ease, border-color 0.3s ease; /* Añadimos animación al fondo y borde */
+        cursor: pointer;         /* Cambiamos el cursor para indicar interactividad */
+    }
+
+    /* Efecto del bloque al pasar el cursor */
+    .heading:hover {
+        background-color: rgba(240, 240, 240, 0.8); /* Color de fondo más claro al pasar sobre el bloque */
+        border-color: rgba(192, 192, 192, 0.7);     /* Resaltamos con un borde más visible */
+    }
+    /*efecto sombra sobre el enlace más información*/
+    .info-hover:hover {
+        text-shadow: 0px 0px 1px #d81b35; /* Sombra al texto en hover */
+        color: #b3172c; /* Cambia ligeramente el color al pasar el cursor */
+    }
+
+    .main-container {
+        font-size: 18px; /* Aumenta el tamaño de la letra */
+        font-family: 'Poppins', Arial, Helvetica, sans-serif; /* Define la fuente */
+        text-align: justify; /* Centra el texto */
+        align-items: center;
+        line-height: 1.2; /* Mejora el espaciado entre líneas */
+        margin-left: 35px;
+        margin-right: 35px;
+    }
+
+
+    .main-container strong {
+        color: #242e42; /* Color para los textos destacados */
+    }
+
+    /* Estilos generales para desktop/otros dispositivos del placeholder de suscribase al boletín y el botón enviar*/
+    @media (max-width: 768px) {
+        .input-group {
+            display: flex;
+            flex-direction: column; /* Apilar input y botón verticalmente */
+            align-items: center; /* Centrar horizontalmente */
+            width: 70%; /* Ancho total del contenedor */
+            margin: 0 auto; /* Centrar el contenedor horizontalmente */
+            gap: 10px; /* Espaciado uniforme entre input y botón */
+        }
+
+        .input-group .form-control,
+        .input-group-btn .btn {
+            width: 100%; /* Ambos elementos tendrán el mismo ancho */
+            max-width: 100%; /* Asegura que no excedan el contenedor */
+            padding: 10px; /* Espaciado interno */
+            font-size: 14px; /* Tamaño uniforme de fuente */
+            box-sizing: border-box; /* Incluye padding y bordes en el ancho total */
+        }
+
+        .input-group .form-control {
+            border: 1px solid #ccc; /* Borde del input */
+            border-radius: 5px; /* Bordes redondeados */
+            background-color: #fff; /* Fondo blanco */
+        }
+
+        .input-group-btn .btn {
+            background-color: #d81b35; /* Botón rojo */
+            color: #fff; /* Texto blanco */
+            border: none;
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .input-group-btn .btn:hover {
+            background-color: #b9152d; /* Rojo más oscuro al pasar el cursor */
+            transform: translateY(-3px); /* Movimiento hacia arriba */
+        }
+    }
+
+    /* ================= Fin Estilos generales del footer ============================== */
+/*info carrier css*/
+		main {
+    display: flex;
+    flex-direction: column; /* Asegura que el contenido se apile verticalmente */
+  
+    font-family: 'Poppins', sans-serif; color: #242e42;
+    text-align: center;
+    background:#fff;
+    margin: 0;
+}
+
+.site-main {
+    padding: 0px;
+}
+
+.box {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.box-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.child-box {
+    width: 100%;
+}
+
+.widget {
+    margin-bottom: 20px;
+}
+
+.text-editor p {
+    font-size: 16px;
+    color: #333;
+}
+
+.heading h1 {
+    font-size: 24px;
+    color: #000;
+}
+
+.testimonial {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.testimonial-content {
+    text-align: center;
+    flex: 1;
+}
+
+.testimonial-text {
+    font-size: 21px;
+    color: #242e42;
+}
+
+.testimonial-text ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+    list-style-type: none;
+}
+
+.testimonial-image {
+    flex: 0 0 500px;
+    margin-left: 50px;
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* Estilos para tablets */
+@media (max-width: 768px) {
+    .box-inner {
+        flex-direction: column;
+    }
+
+    .text-editor p {
+        font-size: 14px;
+    }
+
+    .heading h1 {
+        font-size: 20px;
+    }
+
+    .testimonial {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial-image {
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%; /* Asegura que la imagen ocupe el ancho completo del contenedor */
+    }
+
+    .testimonial-text {
+        font-size: 12px;
+    }
+}
+
+/* Estilos para móviles */
+@media (max-width: 480px) {
+    .site-main {
+        padding: 10px;
+    }
+
+    .box {
+        padding: 10px;
+    }
+
+    .text-editor p {
+        font-size: 12px;
+    }
+
+    .heading h1 {
+        font-size: 18px;
+    }
+
+    .testimonial-text {
+        font-size: 10px;
+    }
+}
+
+
+/* ------------------------inicio caja contenido iconos características destacadas---------------------------------------------*/
+
+/* Estilos generales */
+
+.fondo {
+  background-color: #FFFFFF;
+  padding: 20px;
+  display: flex;
+  overflow-x: auto; /* Barra de desplazamiento horizontal */
+  gap: 10px; /* Espacio entre los elementos */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  margin: 0 15px; /* Margen de 15px a la derecha e izquierda */
+  box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+}
+
+.contenido {
+  background-color: #FFFFFF;
+  padding: 10px;
+  display: flex;
+  flex-wrap: nowrap; /* Evita que los elementos se apilen */
+  justify-content: space-around;
+}
+
+.elemento {
+  background-color: #FFFFFF;
+  border: 3px solid #FFFFFF;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px 0px 1px 0px; 
+  flex: 0 0 auto; /* Evita que los elementos se reduzcan */
+  width: 300px; /* Ancho fijo para los elementos */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Permite el desplazamiento horizontal en pantallas pequeñas */
+}
+
+.iconbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1px;
+  background-color: #FFFFFF;
+}
+
+.iconmini {
+  font-size: 1em;
+  color: #242e42;
+  background-color: #FFFFFF;
+}
+
+.box-contenido {
+  text-align: center;
+  background-color: #FFFFFF;
+}
+
+.box-title {
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #d81b35;
+  background-color: #FFFFFF;
+}
+
+.box-description {
+  font-size: 0.7em;
+  color: #242e42;
+  background-color: #FFFFFF;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+  .fondo {
+    width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
+    margin: 0 15px; /* Mantiene el margen de 15px */
+    padding: 20px 0; /* Ajusta el padding para mantener el margen */
+  }
+
+  .contenido {
+    flex-wrap: nowrap; /* Mantiene los elementos en una fila */
+    overflow-x: auto; /* Barra de desplazamiento horizontal */
+  }
+
+  .elemento {
+    width: 80%; /* Reduce el tamaño del contenido al 80% */
+    margin: 10px; /* Espacio entre los elementos */
+  }
+}
+
+
+
+
+  /* Animación */
+.animation-grow {
+    display: inline-block;
+    animation: grow 2s infinite alternate;
+  }
+  
+  @keyframes grow {
+    from {
+      transform: scale(1.8);
+    }
+    to {
+      transform: scale(2.3);
+    }
+  }
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .contenido {
+      flex-wrap: nowrap; /* Asegura que los elementos no se apilen */
+    }
+  
+    .elemento {
+      flex: 0 0 auto; /* Asegura que los elementos mantengan su tamaño */
+      width: 350px; /* Ancho fijo para los elementos */
+      overflow-x: scroll; /* Barra desplazadora horizontal */
+    }
+  }
+  
+
+
+/* ------------------------fin caja contenido iconos características destacadas---------------------------------------------*/
+
+/*------------------inicio footer1 animado olas-------------------------------*/
+footer1 {
+  position: relative;
+  width: 100%;
+  background: #242e42; /* Color de fondo cambiado */
+  min-height: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*wave and animation*/
+footer1 .wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(/img/wave.png);
+  background-size: 1000px 100px;
+}
+footer1 .wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 10px;
+  animation: animateWave 6s linear infinite;
+}
+
+footer1 .wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 15px;
+  animation: animateWave_02 4s linear infinite;
+}
+footer1 .wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 0;
+  animation: animateWave 3s linear infinite;
+}
+
+footer1 .wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animateWave_02 2s linear infinite;
+}
+
+@keyframes animateWave {
+  0%{
+    background-position-x: 1000px; 
+  }
+  100%{
+    background-position-x: 0px; 
+  }
+}
+
+@keyframes animateWave_02 {
+  0%{
+    background-position-x: 0px; 
+  }
+  100%{
+    background-position-x: 1000px; 
+  }
+}
+/*------------------fin footer1 animado olas-------------------------------*/
+
+.typed {
+  text-align: center;
+  margin: 20px 10px;
+}
+.typed-cursor {
+  font-size: larger;
+  opacity: 1;
+  animation: blink 0.7s infinite;
+  position: relative;
+  left: 10px; /* Espaciado de 10 px a la derecha de las letras */
+}
+
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+	
 /* Estilos generales */
 
 
