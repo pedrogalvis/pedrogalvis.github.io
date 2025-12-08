@@ -1956,491 +1956,510 @@ h2 {
     }
 
     /*footer 100% responsivo*/
-    /* ================= Estilos generales del footer ============================== */
+ 
+	   /*footer 100% responsivo*/
+        /* ================= Estilos generales del footer ============================== */
 
-    #footer {
-        background-color: #242e42;
-        color: #fff;
-        padding: 2rem 0;
-        width: 100%;
-        box-sizing: border-box;
-    }
+        #footer {
+            background-color: #242e42;
+            color: #fff;
+            padding: 2rem 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
 
-    /* Contenedor principal del footer */
-    .container.contfooter {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0 15px; /* Reduce el padding horizontal */
-        margin: 0; /* Elimina márgenes adicionales */
-        box-sizing: border-box;
-    }
-
-    /* Estilo para cada bloque dentro del footer */
-    .footer-brand,
-    .footer-business,
-    .footer-qualities,
-    .footer-office,
-    .footer-newsletter,
-    .footer-social {
-        flex: 1 1 20%; /* Cambiado a 20% para que ocupe el mismo porcentaje de la pantalla */
-        margin-bottom: 1rem;
-        text-align: left;
-        padding: 0 10px; /* Añadido padding para separar contenido */
-    }
-
-    /* Ajustar imagen del logo sin distorsión */
-    .footer-brand img {
-        max-width: 275px;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
-
-    /* 🔴 Para pantallas grandes (PC y más grandes) */
-    @media (min-width: 1025px) {
+        /* Contenedor principal del footer */
         .container.contfooter {
-            flex-direction: row;
+            display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
-            padding: 0 10px;
+            width: 100%;
+            padding: 0 15px; /* Reduce el padding horizontal */
+            margin: 0; /* Elimina márgenes adicionales */
+            box-sizing: border-box;
         }
 
-        /* Reorganiza solo el orden del logo debajo del div de "Academy" */
-
-        .footer-brand {
-            text-align: center;
-            margin-top: 180px; /* Espacio adicional entre "Academy" y el logo */
-        }
-
-        /* Ajustes de los otros bloques para no cambiar su disposición */
-        .footer-business, .footer-qualities, .footer-office, .footer-newsletter, .footer-social {
-            flex: 1 1 18%; /* Mantén el tamaño del bloque en el 18% */
-        }
-    }
-
-
-    /* Títulos */
-    h5 {
-        font-size: 1.2rem;
-        margin-bottom: 0.8rem;
-    }
-
-    /* Estilo de enlaces */
-    p a {
-        color: #ddd;
-        text-decoration: none;
-        font-size: 1rem;
-        display: block;
-    }
-
-    p a:hover {
-        color: #d81b35;
-    }
-
-    /* Estilo para el contenedor de redes sociales */
-    .footer-social p {
-        display: flex;
-        flex-wrap: wrap; /* Permite que los elementos se distribuyan en varias filas */
-        justify-content: center; /* Centra los iconos */
-        gap: 10px; /* Espacio entre los iconos */
-        margin: 0; /* Elimina márgenes adicionales */
-    }
-
-    /* Estilo para cada enlace de icono */
-    .footer-social p a {
-        color: #fff;
-        font-size: 2rem; /* Ajusta el tamaño del icono */
-        width: 30%; /* Cada icono ocupará el 30% del ancho del contenedor */
-        text-align: center; /* Centra los iconos dentro de su contenedor */
-        margin-bottom: 10px; /* Añade espacio entre las filas */
-    }
-
-    /* Para pantallas grandes (PC y más grandes) */
-    @media (min-width: 1025px) {
-        .footer-social p a {
-            width: 30%; /* Ajusta el ancho de los iconos */
-        }
-    }
-
-    /* 🟢 Para pantallas móviles (celulares) */
-    @media (max-width: 768px) {
-        .footer-social p {
-            flex-direction: row; /* Coloca los iconos en una sola fila */
-            justify-content: space-evenly; /* Distribuye los iconos de manera uniforme */
-            gap: 10px; /* Reduce el espacio entre iconos */
-        }
-
-        .footer-social p a {
-            font-size: 2.3rem; /* Hace los iconos más grandes */
-            width: auto; /* Elimina el ancho fijo para que los iconos se ajusten al tamaño necesario */
-        }
-    }
-
-
-    .footer-social p a:hover {
-        color: #d81b35;
-    }
-
-    /* Estilo para el formulario del boletín */
-    .input-group {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .input-group input {
-        padding: 0.5rem;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        width: 70%;
-    }
-
-    .input-group button {
-        padding: 0.5rem 1rem;
-        border: none;
-        background-color: #d81b35;
-        color: #fff;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .input-group button:hover {
-        background-color: #b0152a;
-    }
-
-    /* 🟢 Responsividad para móviles */
-    @media (max-width: 768px) {
-        .container.contfooter {
-            flex-direction: column;
-            align-items: center;
-            padding: 0 10px;
-        }
-
-        .footer-social p {
-            justify-content: center;
-            gap: 8px;
-        }
-
+        /* Estilo para cada bloque dentro del footer */
+        .footer-brand,
         .footer-business,
         .footer-qualities,
         .footer-office,
-        .footer-newsletter {
-            text-align: center;
+        .footer-newsletter,
+        .footer-social {
+            flex: 1 1 20%; /* Cambiado a 20% para que ocupe el mismo porcentaje de la pantalla */
+            margin-bottom: 1rem;
+            text-align: left;
+            padding: 0 10px; /* Añadido padding para separar contenido */
+        }
+
+        /* Ajustar imagen del logo sin distorsión */
+        .footer-brand img {
+            max-width: 275px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* 🔴 Para pantallas grandes (PC y más grandes) */
+        @media (min-width: 1025px) {
+            .container.contfooter {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0 10px;
+            }
+
+            /* Reorganiza solo el orden del logo debajo del div de "Academy" */
+
+            .footer-brand {
+                text-align: center;
+                margin-top: 180px; /* Espacio adicional entre "Academy" y el logo */
+            }
+
+            /* Ajustes de los otros bloques para no cambiar su disposición */
+            .footer-business, .footer-qualities, .footer-office, .footer-newsletter, .footer-social {
+                flex: 1 1 18%; /* Mantén el tamaño del bloque en el 18% */
+            }
+        }
+
+
+        /* Títulos */
+        h5 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Estilo de enlaces */
+        p a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 1rem;
+            display: block;
+        }
+
+        p a:hover {
+            color: #d81b35;
+        }
+
+        /* Estilo para el contenedor de redes sociales */
+        .footer-social p {
+            display: flex;
+            flex-wrap: wrap; /* Permite que los elementos se distribuyan en varias filas */
+            justify-content: center; /* Centra los iconos */
+            gap: 10px; /* Espacio entre los iconos */
+            margin: 0; /* Elimina márgenes adicionales */
+        }
+
+        /* Estilo para cada enlace de icono */
+        .footer-social p a {
+            color: #fff;
+            font-size: 2rem; /* Ajusta el tamaño del icono */
+            width: 30%; /* Cada icono ocupará el 30% del ancho del contenedor */
+            text-align: center; /* Centra los iconos dentro de su contenedor */
+            margin-bottom: 10px; /* Añade espacio entre las filas */
+        }
+
+        /* Para pantallas grandes (PC y más grandes) */
+        @media (min-width: 1025px) {
+            .footer-social p a {
+                width: 30%; /* Ajusta el ancho de los iconos */
+            }
+        }
+
+        /* 🟢 Para pantallas móviles (celulares) */
+        @media (max-width: 768px) {
+            .footer-social p {
+                flex-direction: row; /* Coloca los iconos en una sola fila */
+                justify-content: space-evenly; /* Distribuye los iconos de manera uniforme */
+                gap: 10px; /* Reduce el espacio entre iconos */
+            }
+
+            .footer-social p a {
+                font-size: 2.3rem; /* Hace los iconos más grandes */
+                width: auto; /* Elimina el ancho fijo para que los iconos se ajusten al tamaño necesario */
+            }
+        }
+
+
+        .footer-social p a:hover {
+            color: #d81b35;
+        }
+
+        /* Estilo para el formulario del boletín */
+        .input-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .input-group input {
-            width: 100%;
-        }
-    }
-
-    /* 🟡 Responsividad para tablets */
-    @media (min-width: 769px) and (max-width: 1024px) {
-        .container.contfooter {
-            flex-direction: column;
-        }
-    }
-
-    /* 🔴 Para pantallas grandes (PC y más grandes) */
-    @media (min-width: 1025px) {
-        .container.contfooter {
-            flex-direction: row;
-            justify-content: space-between;
-            padding: 0 10px; /* Añade un padding más pequeño */
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 70%;
         }
 
-        .footer-business, .footer-qualities, .footer-office, .footer-newsletter, .footer-social {
-            flex: 1 1 18%; /* Ajusta para que cada sección ocupe el 18% */
-            margin-right: 1px; /* Reduce margen entre columnas */
-            margin-left: 0;
-        }
-
-        /* Evitar que el contenedor se corte en pantallas grandes */
-        #footer {
-            width: 100%;
-            max-width: 100%;
-        }
-    }
-
-
-
-    /*links debajo del pie de página*/
-
-
-    .main-nav-f {
-
-
-        color: #242e42;
-        background-color: #ccc;
-        padding: 10px 0;
-        text-align: center;
-
-    }
-
-    .main-nav-f {
-        color: #242e42;
-        background-color: #ccc;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 10px 35px;
-        text-align: center;
-
-    }
-
-    .menuf-item {
-        display: inline;
-    }
-
-    .navf-link {
-        color: #242e42;
-        text-decoration: none;
-        font-size: 14px;
-    }
-
-    .navf-link:hover {
-        text-decoration: none;
-    }
-
-    /* Media Query para pantallas pequeñas (móviles) */
-    @media screen and (max-width: 600px) {
-        .nav-menuf {
-            height: auto;
-            font-size: 1rem;
-            padding: 0 15px 0 15px;
-            justify-content: center;
-            text-align: center;
-            gap: 15px;
-
-        }
-
-        .navf-link {
-            font-size: 14px;
-        }
-    }
-
-    /* Media Query para tablets */
-    @media screen and (min-width: 601px) and (max-width: 1024px) {
-        .nav-menuf {
-            gap: 15px;
-        }
-
-        .navf-link {
-            font-size: 12px;
-        }
-    }
-
-    /* Media Query para pantallas grandes (escritorio) */
-    @media screen and (min-width: 1025px) {
-        .nav-menuf {
-            gap: 25px;
-        }
-
-        .navf-link {
-            font-size: 14px;
-        }
-    }
-
-
-    /* Logo */
-    .logo-background {
-        max-width: 250px; /* Tamaño ajustado del logo */
-        margin-bottom: 20px; /* Separación del logo con el contenido */
-    }
-
-    /* Estilos del texto */
-    .full-width-contact .text h3 {
-        font-size: 1.8em;
-        font-family: 'Poppins', Arial, sans-serif;
-        color: #242e42; /* Elegante color oscuro */
-        margin-bottom: 20px; /* Espaciado del texto */
-    }
-
-    .contact-button {
-        background-color: #242e42; /* Azul oscuro para el botón */
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        border-radius: 5px; /* Bordes redondeados */
-        cursor: pointer;
-        text-decoration: none; /* Sin subrayado */
-        transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .contact-button:hover {
-        background-color: #d81b35; /* Rojo para hover */
-        transform: translateY(-5px); /* Movimiento en hover */
-        box-shadow: 0 8px 20px #d81b35; /* Efecto de sombra */
-    }
-
-    /* Estilos de la sección principal del texto */
-    .full-width-contact {
-        margin-bottom: 70px; /* Espacio entre la primera y segunda sección */
-    }
-
-    .text h2 {
-        font-size: 2.25em;
-        font-family: 'poppins', Arial, sans-serif;
-        color: #242e42;
-
-    }
-
-
-    /* Estilos de la sección animada */
-    .footer-animated h2 {
-        font-family: 'Poppins', Arial, Helvetica, sans-serif;
-        font-size: 21px;
-        color: #242e42;
-        margin-bottom: 10px;
-    }
-
-    .typed-container {
-        font-size: 2em;
-        font-family: 'Poppins', Arial, Helvetica, sans-serif;
-        color: #fff; /* Color del texto animado */
-        font-weight: bold;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.487);
-    }
-
-    .typed-cursor--blink {
-        color: #fff;
-        animation: blink 0.7s infinite;
-    }
-
-    @keyframes blink {
-        0%, 100% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 0;
-        }
-    }
-    .logo-background {
-        max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
-        height: auto; /* Mantiene la proporción de la imagen */
-        display: block; /* Previene márgenes no deseados */
-        margin: 0 auto; /* Centra la imagen horizontalmente */
-    }
-
-    /* Opcional: Ajustes adicionales para pantallas pequeñas */
-    @media (max-width: 768px) {
-        .logo-background {
-            width: 95%; /* Ajusta el ancho de la imagen en pantallas pequeñas */
-        }
-    }
-
-
-
-
-
-    /* Estilo responsivo para pantallas más pequeñas */
-    @media (max-width: 768px) {
-        #carrusel-slick {
-            flex-wrap: wrap; /* Permite que los botones se muevan a otra línea */
-            justify-content: center;
-        }
-
-    }
-
-    /* Estilo del enlace contenedor */
-    .heading-link {
-        display: block;           /* Envuelve todo el bloque */
-        text-decoration: none;    /* Eliminamos subrayado */
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añadimos un efecto de transformación suave */
-    }
-
-    /* Efecto al pasar el cursor en el enlace */
-    .heading-link:hover {
-        transform: scale(1.02);    /* Ligero aumento del bloque al hacer hover (2%) */
-
-        text-decoration: none;    /* Aseguramos que no tenga subrayado */
-    }
-
-    /* Estilo general del componente clickeable */
-    .heading {
-        text-align: center;       /* Centrar el texto */
-        margin: 20px;            /* Margen externo */
-        padding: 20px;           /* Espaciado interno */
-        border: 1px solid rgba(204, 204, 204, 0.45); /* Borde sutil */
-        border-radius: 8px;       /* Bordes redondeados */
-        transition: background-color 0.3s ease, border-color 0.3s ease; /* Añadimos animación al fondo y borde */
-        cursor: pointer;         /* Cambiamos el cursor para indicar interactividad */
-    }
-
-    /* Efecto del bloque al pasar el cursor */
-    .heading:hover {
-        background-color: rgba(240, 240, 240, 0.8); /* Color de fondo más claro al pasar sobre el bloque */
-        border-color: rgba(192, 192, 192, 0.7);     /* Resaltamos con un borde más visible */
-    }
-    /*efecto sombra sobre el enlace más información*/
-    .info-hover:hover {
-        text-shadow: 0px 0px 1px #d81b35; /* Sombra al texto en hover */
-        color: #b3172c; /* Cambia ligeramente el color al pasar el cursor */
-    }
-
-    .main-container {
-        font-size: 18px; /* Aumenta el tamaño de la letra */
-        font-family: 'Poppins', Arial, Helvetica, sans-serif; /* Define la fuente */
-        text-align: justify; /* Centra el texto */
-        align-items: center;
-        line-height: 1.2; /* Mejora el espaciado entre líneas */
-        margin-left: 35px;
-        margin-right: 35px;
-    }
-
-
-    .main-container strong {
-        color: #242e42; /* Color para los textos destacados */
-    }
-
-    /* Estilos generales para desktop/otros dispositivos del placeholder de suscribase al boletín y el botón enviar*/
-    @media (max-width: 768px) {
-        .input-group {
-            display: flex;
-            flex-direction: column; /* Apilar input y botón verticalmente */
-            align-items: center; /* Centrar horizontalmente */
-            width: 70%; /* Ancho total del contenedor */
-            margin: 0 auto; /* Centrar el contenedor horizontalmente */
-            gap: 10px; /* Espaciado uniforme entre input y botón */
-        }
-
-        .input-group .form-control,
-        .input-group-btn .btn {
-            width: 100%; /* Ambos elementos tendrán el mismo ancho */
-            max-width: 100%; /* Asegura que no excedan el contenedor */
-            padding: 10px; /* Espaciado interno */
-            font-size: 14px; /* Tamaño uniforme de fuente */
-            box-sizing: border-box; /* Incluye padding y bordes en el ancho total */
-        }
-
-        .input-group .form-control {
-            border: 1px solid #ccc; /* Borde del input */
-            border-radius: 5px; /* Bordes redondeados */
-            background-color: #fff; /* Fondo blanco */
-        }
-
-        .input-group-btn .btn {
-            background-color: #d81b35; /* Botón rojo */
-            color: #fff; /* Texto blanco */
+        .input-group button {
+            padding: 0.5rem 1rem;
             border: none;
+            background-color: #d81b35;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .input-group button:hover {
+            background-color: #b0152a;
+        }
+
+        /* 🟢 Responsividad para móviles */
+        @media (max-width: 768px) {
+            .container.contfooter {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 10px;
+            }
+
+            .footer-social p {
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .footer-business,
+            .footer-qualities,
+            .footer-office,
+            .footer-newsletter {
+                text-align: center;
+            }
+
+            .input-group input {
+                width: 100%;
+            }
+        }
+
+        /* 🟡 Responsividad para tablets */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container.contfooter {
+                flex-direction: column;
+            }
+        }
+
+        /* 🔴 Para pantallas grandes (PC y más grandes) */
+        @media (min-width: 1025px) {
+            .container.contfooter {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0 10px; /* Añade un padding más pequeño */
+            }
+
+            .footer-business, .footer-qualities, .footer-office, .footer-newsletter, .footer-social {
+                flex: 1 1 18%; /* Ajusta para que cada sección ocupe el 18% */
+                margin-right: 1px; /* Reduce margen entre columnas */
+                margin-left: 0;
+            }
+
+            /* Evitar que el contenedor se corte en pantallas grandes */
+            #footer {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+
+
+        /*links debajo del pie de página*/
+
+
+        .main-nav-f {
+
+
+            color: #242e42;
+            background-color: #ccc;
+            padding: 10px 0;
+            text-align: center;
+
+        }
+
+        .main-nav-f {
+            color: #242e42;
+            background-color: #ccc;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 10px 35px;
+            text-align: center;
+
+        }
+
+        .menuf-item {
+            display: inline;
+        }
+
+        .navf-link {
+            color: #242e42;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .navf-link:hover {
+            text-decoration: none;
+        }
+
+        /* Media Query para pantallas pequeñas (móviles) */
+        @media screen and (max-width: 600px) {
+            .nav-menuf {
+                height: auto;
+                font-size: 1rem;
+                padding: 10px;
+                justify-content: center;
+
+            }
+
+            .navf-link {
+                font-size: 14px;
+            }
+        }
+
+        /* Media Query para tablets */
+        @media screen and (min-width: 601px) and (max-width: 1024px) {
+            .nav-menuf {
+                gap: 15px;
+            }
+
+            .navf-link {
+                font-size: 12px;
+            }
+        }
+
+        /* Media Query para pantallas grandes (escritorio) */
+        @media screen and (min-width: 1025px) {
+            .nav-menuf {
+                gap: 25px;
+            }
+
+            .navf-link {
+                font-size: 14px;
+            }
+        }
+
+
+        /* Logo */
+        .logo-background {
+            max-width: 250px; /* Tamaño ajustado del logo */
+            margin-bottom: 20px; /* Separación del logo con el contenido */
+        }
+
+        /* Estilos del texto */
+        .full-width-contact .text h3 {
+            font-size: 1.8em;
+            font-family: 'Poppins', Arial, sans-serif;
+            color: #242e42; /* Elegante color oscuro */
+            margin-bottom: 20px; /* Espaciado del texto */
+        }
+
+        .contact-button {
+            background-color: #242e42; /* Azul oscuro para el botón */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
             border-radius: 5px; /* Bordes redondeados */
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none; /* Sin subrayado */
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .input-group-btn .btn:hover {
-            background-color: #b9152d; /* Rojo más oscuro al pasar el cursor */
-            transform: translateY(-3px); /* Movimiento hacia arriba */
+        .contact-button:hover {
+            background-color: #d81b35; /* Rojo para hover */
+            transform: translateY(-5px); /* Movimiento en hover */
+            box-shadow: 0 8px 20px #d81b35; /* Efecto de sombra */
         }
-    }
 
-    /* ================= Fin Estilos generales del footer ============================== */
+        /* Estilos de la sección principal del texto */
+        .full-width-contact {
+            margin-bottom: 70px; /* Espacio entre la primera y segunda sección */
+        }
+
+        .text h2 {
+            font-size: 2.25em;
+            font-family: 'poppins', Arial, sans-serif;
+            color: #242e42;
+
+        }
 
 
-		
+        /* Estilos de la sección animada */
+        .footer-animated h2 {
+            font-family: 'Poppins', Arial, Helvetica, sans-serif;
+            font-size: 21px;
+            color: #242e42;
+            margin-bottom: 10px;
+        }
+
+        .typed-container {
+            font-size: 2em;
+            font-family: 'Poppins', Arial, Helvetica, sans-serif;
+            color: #fff; /* Color del texto animado */
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.487);
+        }
+
+        .typed-cursor--blink {
+            color: #fff;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+        .logo-background {
+            max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
+            height: auto; /* Mantiene la proporción de la imagen */
+            display: block; /* Previene márgenes no deseados */
+            margin: 0 auto; /* Centra la imagen horizontalmente */
+        }
+
+        /* Opcional: Ajustes adicionales para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .logo-background {
+                width: 95%; /* Ajusta el ancho de la imagen en pantallas pequeñas */
+            }
+        }
+
+
+
+
+
+        /* Estilo responsivo para pantallas más pequeñas */
+        @media (max-width: 768px) {
+            #carrusel-slick {
+                flex-wrap: wrap; /* Permite que los botones se muevan a otra línea */
+                justify-content: center;
+            }
+
+        }
+
+        /* Estilo del enlace contenedor */
+        .heading-link {
+            display: block;           /* Envuelve todo el bloque */
+            text-decoration: none;    /* Eliminamos subrayado */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añadimos un efecto de transformación suave */
+        }
+
+        /* Efecto al pasar el cursor en el enlace */
+        .heading-link:hover {
+            transform: scale(1.02);    /* Ligero aumento del bloque al hacer hover (2%) */
+
+            text-decoration: none;    /* Aseguramos que no tenga subrayado */
+        }
+
+        /* Estilo general del componente clickeable */
+        .heading {
+            text-align: center;       /* Centrar el texto */
+            margin: 20px;            /* Margen externo */
+            padding: 20px;           /* Espaciado interno */
+            border: 1px solid rgba(204, 204, 204, 0.45); /* Borde sutil */
+            border-radius: 8px;       /* Bordes redondeados */
+            transition: background-color 0.3s ease, border-color 0.3s ease; /* Añadimos animación al fondo y borde */
+            cursor: pointer;         /* Cambiamos el cursor para indicar interactividad */
+        }
+
+        /* Efecto del bloque al pasar el cursor */
+        .heading:hover {
+            background-color: rgba(240, 240, 240, 0.8); /* Color de fondo más claro al pasar sobre el bloque */
+            border-color: rgba(192, 192, 192, 0.7);     /* Resaltamos con un borde más visible */
+        }
+        /*efecto sombra sobre el enlace más información*/
+        .info-hover:hover {
+            text-shadow: 0px 0px 1px #d81b35; /* Sombra al texto en hover */
+            color: #b3172c; /* Cambia ligeramente el color al pasar el cursor */
+        }
+
+        .main-container {
+            font-size: 18px; /* Aumenta el tamaño de la letra */
+            font-family: 'Poppins', Arial, Helvetica, sans-serif; /* Define la fuente */
+            text-align: justify; /* Centra el texto */
+            align-items: center;
+            line-height: 1.2; /* Mejora el espaciado entre líneas */
+            margin-left: 35px;
+            margin-right: 35px;
+        }
+
+
+        .main-container strong {
+            color: #242e42; /* Color para los textos destacados */
+        }
+
+        /* Estilos generales para desktop/otros dispositivos del placeholder de suscribase al boletín y el botón enviar*/
+        @media (max-width: 768px) {
+            .input-group {
+                display: flex;
+                flex-direction: column; /* Apilar input y botón verticalmente */
+                align-items: center; /* Centrar horizontalmente */
+                width: 70%; /* Ancho total del contenedor */
+                margin: 0 auto; /* Centrar el contenedor horizontalmente */
+                gap: 10px; /* Espaciado uniforme entre input y botón */
+            }
+
+            .input-group .form-control,
+            .input-group-btn .btn {
+                width: 100%; /* Ambos elementos tendrán el mismo ancho */
+                max-width: 100%; /* Asegura que no excedan el contenedor */
+                padding: 10px; /* Espaciado interno */
+                font-size: 14px; /* Tamaño uniforme de fuente */
+                box-sizing: border-box; /* Incluye padding y bordes en el ancho total */
+            }
+
+            .input-group .form-control {
+                border: 1px solid #ccc; /* Borde del input */
+                border-radius: 5px; /* Bordes redondeados */
+                background-color: #fff; /* Fondo blanco */
+            }
+
+            .input-group-btn .btn {
+                background-color: #d81b35; /* Botón rojo */
+                color: #fff; /* Texto blanco */
+                border: none;
+                border-radius: 5px; /* Bordes redondeados */
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+
+            .input-group-btn .btn:hover {
+                background-color: #b9152d; /* Rojo más oscuro al pasar el cursor */
+                transform: translateY(-3px); /* Movimiento hacia arriba */
+            }
+        }
+
+        /* ================= Fin Estilos generales del footer ============================== */
+
+        /*reset de los titulos por causa de tailwinds*/
+
+        h1 {
+            font-size: 2em !important;
+            font-weight: bold !important;
+            margin: 0.67em 0 !important;
+        }
+
+        h2 {
+            font-size: 1.5em !important;
+            font-weight: bold !important;
+            margin: 0.75em 0 !important;
+        }
+
+        h3 {
+            font-size: 1.17em !important;
+            font-weight: bold !important;
+            margin: 0.83em 0 !important;
+        }
+
+	
 
    
     </style>
